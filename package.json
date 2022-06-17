@@ -1,0 +1,19 @@
+{
+  "name": "practicoapirest",
+  "version": "1.0.0",
+  "description": "El principal sitio de referencia para los amantes del cine.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeGuillen7/MoviesDB.git"
+  },
+  "author": "Jorge Guillén",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JorgeGuillen7/MoviesDB/issues"
+  },
+  "homepage": "https://github.com/JorgeGuillen7/MoviesDB#readme"
+}
