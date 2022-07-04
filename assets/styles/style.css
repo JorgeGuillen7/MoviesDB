@@ -148,6 +148,7 @@ h2 {
     height: 220px;
     padding: 0 20px;
     overflow-x: scroll;
+    overflow-y: visible;
 }
 
 .container-movies::-webkit-scrollbar {
@@ -163,11 +164,13 @@ h2 {
     text-align: center;
     color: var(--cream);
     background-color: var(--green-dark);
-    transition: opacity 200ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
 }
 
 .movie-item img {
+    height: 180px;
     filter: sepia(0.2) grayscale(0.1);
+    transition: filter 300ms ease-in-out;
 }
 
 .movie-item__title {
@@ -176,12 +179,14 @@ h2 {
 }
 
 .container-movies:hover .movie-item {
-    opacity: 0.5;
+    opacity: 0.7;
+    filter: grayscale(1);
 }
 
 .container-movies .movie-item:hover {
     cursor: pointer;
     opacity: 1;
+    filter: none;
 }
 
 .movie-item:hover .movie-item__title {
@@ -207,53 +212,61 @@ h2 {
 
 .popular-categories {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 30px;
-    width: fit-content;
+    grid-template-columns: repeat(auto-fill, 110px);
+    gap: 20px 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
 }
 
-.popular-categories li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.categories li {
     position: relative;
-    height: 50px;
-    padding: 0 15px;
+    height: 45px;
     border-radius: 3px;
     outline-offset: -3px;
     outline: 1px solid var(--cream);
-    background-color: var(--green-dark);
+    background-color: var(--green-light);
     list-style: none;
-    text-align: center;
+    width: 110px;
 }
 
-.popular-categories li::before {
-    content: "";
-    position: absolute;
-    top: calc(50% - 12px);
-    left: -13px;
-    width: 20px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: var(--cream);
-}
-
-.popular-categories li::after {
-    content: "";
-    position: absolute;
-    top: calc(50% - 12px);
-    right: -13px;
-    width: 20px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: var(--cream);
-}
-
-.popular-categories a {
+.categories a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+    padding: 0 10px;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: var(--black);
     font-weight: bold;
+}
+
+.categories li::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 12px);
+    left: -10px;
+    width: 16px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--cream);
+}
+
+.categories li::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 12px);
+    right: -10px;
+    width: 16px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--cream);
+}
+
+.popular-categories a span {
+    width: min-content;
 }
 
 /* Search section */
