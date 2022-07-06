@@ -73,7 +73,6 @@ h2 {
 }
 
 .back-icon {
-    height: fit-content;
     position: absolute;
     top: calc(50% - 13px);
     left: 15px;
@@ -87,6 +86,20 @@ h2 {
 .category-header h1 {
     margin: 30px auto;
     font-size: 3rem;
+}
+
+.movie-details-header {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.25) 19.27%,
+            rgba(0, 0, 0, 0) 29.17%
+        ),
+        top / 100% no-repeat
+            url("https://pics.filmaffinity.com/Deadpool-777527803-large.jpg");
 }
 
 .main-section {
@@ -228,6 +241,11 @@ h2 {
     background-color: var(--green-light);
     list-style: none;
     width: 110px;
+    transition: background-color 200ms ease-in-out;
+}
+
+.categories li:hover {
+    background-color: var(--green-dark);
 }
 
 .categories a {
@@ -295,13 +313,27 @@ h2 {
 
 /* Movie details section */
 .movie-details-section {
+    position: relative;
+    bottom: -50px;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    padding: 25px 0;
+    margin-top: 50vh;
+    padding: 25px 0 10px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: var(--green-dark);
+}
+
+.close-icon {
+    position: absolute;
+    right: 20px;
+    font-size: 2rem;
+}
+
+.close-icon:hover {
+    cursor: pointer;
 }
 
 .movie-details__title {
@@ -339,7 +371,6 @@ h2 {
     align-items: center;
     height: 50px;
     width: 100%;
-    margin-top: 40px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     background-color: var(--orange-dark);
@@ -351,6 +382,6 @@ h2 {
     color: var(--cream);
 }
 
-.disable {
+.hidden {
     display: none;
 }
