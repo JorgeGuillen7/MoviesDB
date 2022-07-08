@@ -230,6 +230,7 @@ h2 {
     justify-content: center;
     width: 100%;
     max-width: 1000px;
+    padding-bottom: 40px;
 }
 
 .categories li {

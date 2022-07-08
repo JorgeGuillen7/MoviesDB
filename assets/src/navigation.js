@@ -1,6 +1,11 @@
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
 
+searcherMainSection.addEventListener(
+    "click",
+    () => (location.hash = "#search")
+);
+
 function navigator() {
     console.log({ location });
 

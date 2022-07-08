@@ -9,6 +9,7 @@ const API = axios.create({
 });
 
 const createCarousel = (itemsList, carouselContainer) => {
+    carouselContainer.innerHTML = "";
     itemsList.forEach((movie) => {
         let name;
         if (movie.media_type === "movie") {
@@ -54,6 +55,7 @@ const getTrendingTVShowsPreview = async () => {
 };
 
 const getCategories = async () => {
+    moviesCategories.innerHTML = "";
     const { data } = await API(`genre/movie/list`);
     const results = data.genres;
 

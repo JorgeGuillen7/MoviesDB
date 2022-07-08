@@ -8,9 +8,12 @@ const categoryHeader = $("#categoryHeader");
 const mainSection = $("#mainSection");
 
 const trendingPreview = $("#trendingPreview");
+const searcherMainSection = $("#searcherMainSection");
 const trendingMoviesPreview = $("#trendingMoviesPreview");
 const trendingTVShowsPreview = $("#trendingTVShowsPreview");
 const moviesCategories = $("#moviesCategories");
+const searcherFooter = $("#searcherFooter");
+const homeFooter = $("#homeFooter");
 
 const movieDetailsSection = $("#movieDetailsSection");
 const genericSection = $("#genericSection");
