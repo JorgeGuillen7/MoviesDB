@@ -7,35 +7,32 @@ searcherMainSection.addEventListener(
 );
 
 function navigator() {
-    console.log({ location });
-
-    if (location.hash.startsWith("#trends")) {
-        console.log("trends");
-        trendsPage();
-    } else if (location.hash.startsWith("#search")) {
-        console.log("search");
-        searchPage();
-    } else if (location.hash.startsWith("#movie=")) {
-        console.log("movie details");
-        movieDetailsPage();
-    } else if (location.hash.startsWith("#category=")) {
-        console.log("categories");
-        categoriesPage();
-    } else {
-        console.log("home");
-        homePage();
-    }
+    location.hash.startsWith("#trends")
+        ? trendsPage()
+        : location.hash.startsWith("#search")
+        ? searchPage()
+        : location.hash.startsWith("#movie")
+        ? movieDetailsPage()
+        : location.hash.startsWith("#category")
+        ? categoriesPage()
+        : homePage();
 }
 
-const homePage = () => {
-    principalHeader.classList.remove("hidden");
+const hideSections = () => {
+    principalHeader.classList.add("hidden");
     movieDetailsHeader.classList.add("hidden");
     searchHeader.classList.add("hidden");
     categoryHeader.classList.add("hidden");
 
-    mainSection.classList.remove("hidden");
+    mainSection.classList.add("hidden");
     movieDetailsSection.classList.add("hidden");
     genericSection.classList.add("hidden");
+};
+
+const homePage = () => {
+    hideSections();
+    principalHeader.classList.remove("hidden");
+    mainSection.classList.remove("hidden");
 
     getTrendingPreview();
     getTrendingMoviesPreview();
@@ -44,45 +41,29 @@ const homePage = () => {
 };
 
 const searchPage = () => {
-    principalHeader.classList.add("hidden");
-    movieDetailsHeader.classList.add("hidden");
+    hideSections();
     searchHeader.classList.remove("hidden");
-    categoryHeader.classList.add("hidden");
-
-    mainSection.classList.add("hidden");
-    movieDetailsSection.classList.add("hidden");
     genericSection.classList.remove("hidden");
 };
 
 const movieDetailsPage = () => {
-    principalHeader.classList.add("hidden");
+    hideSections();
     movieDetailsHeader.classList.remove("hidden");
-    searchHeader.classList.add("hidden");
-    categoryHeader.classList.add("hidden");
-
-    mainSection.classList.add("hidden");
     movieDetailsSection.classList.remove("hidden");
-    genericSection.classList.add("hidden");
 };
 
 const categoriesPage = () => {
-    principalHeader.classList.add("hidden");
-    movieDetailsHeader.classList.add("hidden");
-    searchHeader.classList.add("hidden");
+    hideSections();
     categoryHeader.classList.remove("hidden");
-
-    mainSection.classList.add("hidden");
-    movieDetailsSection.classList.add("hidden");
     genericSection.classList.remove("hidden");
+
+    categoryTitle.innerText = decodeURI(location.hash.split("-")[1]);
+    const id = location.hash.split("-")[0].split("=")[1];
+    getMoviesByCategory(id);
 };
 
 const trendsPage = () => {
-    principalHeader.classList.add("hidden");
-    movieDetailsHeader.classList.add("hidden");
-    searchHeader.classList.add("hidden");
+    hideSections();
     categoryHeader.classList.remove("hidden");
-
-    mainSection.classList.add("hidden");
-    movieDetailsSection.classList.add("hidden");
     genericSection.classList.remove("hidden");
 };

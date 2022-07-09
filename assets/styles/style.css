@@ -75,7 +75,7 @@ h2 {
 .back-icon {
     position: absolute;
     top: calc(50% - 13px);
-    left: 15px;
+    left: 20px;
     font-size: 2rem;
 }
 
@@ -189,6 +189,7 @@ h2 {
 .movie-item__title {
     display: none;
     padding: 3px;
+    max-width: 135px;
 }
 
 .container-movies:hover .movie-item {
@@ -300,15 +301,11 @@ h2 {
     padding: 20px;
 }
 
-.generic-item {
-    height: fit-content;
-}
-
-.generic-item img {
+.generic-section__container .movie-item img {
     height: 200px;
 }
 
-.generic-item:hover {
+.generic-section__container .movie-item:hover {
     cursor: pointer;
 }
 

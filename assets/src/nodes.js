@@ -7,6 +7,9 @@ const categoryHeader = $("#categoryHeader");
 
 const mainSection = $("#mainSection");
 
+const movieDetailsSection = $("#movieDetailsSection");
+const genericSection = $("#genericSection");
+
 const trendingPreview = $("#trendingPreview");
 const searcherMainSection = $("#searcherMainSection");
 const trendingMoviesPreview = $("#trendingMoviesPreview");
@@ -15,5 +18,4 @@ const moviesCategories = $("#moviesCategories");
 const searcherFooter = $("#searcherFooter");
 const homeFooter = $("#homeFooter");
 
-const movieDetailsSection = $("#movieDetailsSection");
-const genericSection = $("#genericSection");
+const categoryTitle = $("#categoryTitle");

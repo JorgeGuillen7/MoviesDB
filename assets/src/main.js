@@ -12,7 +12,7 @@ const createCarousel = (itemsList, carouselContainer) => {
     carouselContainer.innerHTML = "";
     itemsList.forEach((movie) => {
         let name;
-        if (movie.media_type === "movie") {
+        if (movie.title) {
             name = movie.title;
         } else {
             name = movie.name;
@@ -62,7 +62,7 @@ const getCategories = async () => {
     for (let i = 0; i < 10; i++) {
         const li = document.createElement("li");
         const link = document.createElement("a");
-        link.href = `#`;
+        link.href = `#category=${results[i].id}-${results[i].name}`;
         const icon = document.createElement("i");
         icon.className = "fa-solid fa-film";
         const title = document.createElement("span");
@@ -73,19 +73,15 @@ const getCategories = async () => {
         link.appendChild(title);
         moviesCategories.appendChild(li);
     }
+};
 
-    // results.forEach((category) => {
-    //     const li = document.createElement("li");
-    //     const link = document.createElement("a");
-    //     link.href = `#`;
-    //     const icon = document.createElement("i");
-    //     icon.className = "fa-solid fa-film";
-    //     const title = document.createElement("span");
-    //     title.innerText = category.name;
+const getMoviesByCategory = async (id) => {
+    const { data } = await API(`discover/movie`, {
+        params: {
+            with_genres: id,
+        },
+    });
+    const results = data.results;
 
-    //     li.appendChild(link);
-    //     link.appendChild(icon);
-    //     link.appendChild(title);
-    //     categoriesContainer.appendChild(li);
-    // });
+    createCarousel(results, genericSection);
 };
