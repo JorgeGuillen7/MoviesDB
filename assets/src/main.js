@@ -8,7 +8,7 @@ const API = axios.create({
     },
 });
 
-const createCarousel = (itemsList, carouselContainer) => {
+const createContainer = (itemsList, carouselContainer) => {
     carouselContainer.innerHTML = "";
     itemsList.forEach((movie) => {
         let name;
@@ -37,21 +37,21 @@ const getTrendingPreview = async () => {
     const { data } = await API(`trending/all/week`);
     const results = data.results;
 
-    createCarousel(results, trendingPreview);
+    createContainer(results, trendingPreview);
 };
 
 const getTrendingMoviesPreview = async () => {
     const { data } = await API(`trending/movie/week`);
     const results = data.results;
 
-    createCarousel(results, trendingMoviesPreview);
+    createContainer(results, trendingMoviesPreview);
 };
 
 const getTrendingTVShowsPreview = async () => {
     const { data } = await API(`trending/tv/week`);
     const results = data.results;
 
-    createCarousel(results, trendingTVShowsPreview);
+    createContainer(results, trendingTVShowsPreview);
 };
 
 const getCategories = async () => {
@@ -83,5 +83,16 @@ const getMoviesByCategory = async (id) => {
     });
     const results = data.results;
 
-    createCarousel(results, genericSection);
+    createContainer(results, genericSection);
+};
+
+const getMoviesBySearch = async (query) => {
+    const { data } = await API(`search/movie`, {
+        params: {
+            query,
+        },
+    });
+    const results = data.results;
+
+    createContainer(results, genericSection);
 };

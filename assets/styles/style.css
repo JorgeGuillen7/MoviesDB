@@ -79,6 +79,10 @@ h2 {
     font-size: 2rem;
 }
 
+.back-icon:hover {
+    cursor: pointer;
+}
+
 .search-header {
     margin: 50px auto;
 }

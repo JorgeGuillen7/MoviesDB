@@ -6,16 +6,23 @@ const searchHeader = $("#searchHeader");
 const categoryHeader = $("#categoryHeader");
 
 const mainSection = $("#mainSection");
-
 const movieDetailsSection = $("#movieDetailsSection");
 const genericSection = $("#genericSection");
 
+//Main section
+const searcherHomeInput = $("#searcherHomeInput");
+const searcherHomeButton = $("#searcherHomeButton");
 const trendingPreview = $("#trendingPreview");
-const searcherMainSection = $("#searcherMainSection");
 const trendingMoviesPreview = $("#trendingMoviesPreview");
 const trendingTVShowsPreview = $("#trendingTVShowsPreview");
 const moviesCategories = $("#moviesCategories");
 const searcherFooter = $("#searcherFooter");
 const homeFooter = $("#homeFooter");
 
+//Category section
+const backButton = $("#backButton");
 const categoryTitle = $("#categoryTitle");
+
+//Searcher section
+const searcherInput = $("#searcherInput");
+const searcherButton = $("#searcherButton");

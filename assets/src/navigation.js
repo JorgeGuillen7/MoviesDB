@@ -1,10 +1,23 @@
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
 
-searcherMainSection.addEventListener(
-    "click",
-    () => (location.hash = "#search")
-);
+const history = [];
+backButton.addEventListener("click", () => {
+    history.pop();
+    if (history.length > 0) {
+        location.hash = "#search=" + history[history.length - 1];
+    } else {
+        location.hash = "#home";
+    }
+});
+
+searcherHomeButton.addEventListener("click", () => {
+    location.hash = "#search=" + searcherHomeInput.value;
+});
+
+searcherButton.addEventListener("click", () => {
+    location.hash = "#search=" + searcherInput.value;
+});
 
 function navigator() {
     location.hash.startsWith("#trends")
@@ -16,6 +29,8 @@ function navigator() {
         : location.hash.startsWith("#category")
         ? categoriesPage()
         : homePage();
+
+    window.scrollTo(0, 0);
 }
 
 const hideSections = () => {
@@ -44,6 +59,9 @@ const searchPage = () => {
     hideSections();
     searchHeader.classList.remove("hidden");
     genericSection.classList.remove("hidden");
+
+    const query = decodeURI(location.hash.split("=")[1]);
+    getMoviesBySearch(query);
 };
 
 const movieDetailsPage = () => {
