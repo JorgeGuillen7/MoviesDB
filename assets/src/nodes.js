@@ -26,3 +26,10 @@ const categoryTitle = $("#categoryTitle");
 //Searcher section
 const searcherInput = $("#searcherInput");
 const searcherButton = $("#searcherButton");
+
+//Movie details section
+const closeButton = $("#closeButton");
+const movieDetailsTitle = $("#movieDetailsTitle");
+const movieDetailsCategories = $("#movieDetailsCategories");
+const movieDetailsDescription = $("#movieDetailsDescription");
+const similarMovies = $("#similarMovies");

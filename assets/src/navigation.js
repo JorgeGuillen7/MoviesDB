@@ -1,15 +1,24 @@
-window.addEventListener("DOMContentLoaded", navigator, false);
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        navigator();
+        window.history.pushState({ loadUrl: window.location.href }, null, "");
+    },
+    false
+);
 window.addEventListener("hashchange", navigator, false);
 
-const history = [];
-backButton.addEventListener("click", () => {
-    history.pop();
-    if (history.length > 0) {
-        location.hash = "#search=" + history[history.length - 1];
+const backPage = () => {
+    const stateLoad = window.history.state ? window.history.state.loadUrl : "";
+    if (stateLoad.includes("#")) {
+        window.location.hash = "";
     } else {
-        location.hash = "#home";
+        window.history.back();
     }
-});
+};
+
+backButton.addEventListener("click", backPage);
+closeButton.addEventListener("click", backPage);
 
 searcherHomeButton.addEventListener("click", () => {
     location.hash = "#search=" + searcherHomeInput.value;
@@ -25,6 +34,8 @@ function navigator() {
         : location.hash.startsWith("#search")
         ? searchPage()
         : location.hash.startsWith("#movie")
+        ? movieDetailsPage()
+        : location.hash.startsWith("#tv")
         ? movieDetailsPage()
         : location.hash.startsWith("#category")
         ? categoriesPage()
@@ -68,6 +79,11 @@ const movieDetailsPage = () => {
     hideSections();
     movieDetailsHeader.classList.remove("hidden");
     movieDetailsSection.classList.remove("hidden");
+
+    const id = location.hash.split("=")[1];
+    const mediaType = location.hash.split("=")[0].split("#")[1];
+    getMovieDetails(id, mediaType);
+    getSimilarMovies(id, mediaType);
 };
 
 const categoriesPage = () => {

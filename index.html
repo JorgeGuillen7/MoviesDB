@@ -90,58 +90,24 @@
             ></section>
 
             <section class="movie-details-section" id="movieDetailsSection">
-                <span class="close-icon">
+                <span class="close-icon" id="closeButton">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </span>
-                <h1 class="movie-details__title">Deadpool 2</h1>
-                <div class="movie-details__categories">
-                    <p>Acción</p>
-                    <p>Romance</p>
-                    <p>Comedia</p>
-                </div>
-                <p class="movie-details__description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Magnam cupiditate autem pariatur esse est, amet hic adipisci
-                    eligendi dolore rerum nesciunt ipsa! Unde accusamus porro
-                    iusto dolor, amet ab fuga! Eum enim perspiciatis est
-                    distinctio voluptas dolorem.
-                </p>
+                <h1 class="movie-details__title" id="movieDetailsTitle"></h1>
+                <div
+                    class="movie-details__categories"
+                    id="movieDetailsCategories"
+                ></div>
+                <p
+                    class="movie-details__description"
+                    id="movieDetailsDescription"
+                ></p>
                 <section class="similar">
-                    <h2>Películas similares</h2>
-                    <div class="similar-container container-movies">
-                        <div class="movie-item">
-                            <img
-                                src="./assets/img/Movie1.png"
-                                alt="Deadpool 2"
-                            />
-                            <p class="movie-item__title">Deadpool 2</p>
-                        </div>
-                        <div class="movie-item">
-                            <img
-                                src="./assets/img/Movie2.png"
-                                alt="Deadpool 2"
-                            />
-                            <p class="movie-item__title">
-                                Avengers: Infinity War
-                            </p>
-                        </div>
-                        <div class="movie-item">
-                            <img
-                                src="./assets/img/Movie1.png"
-                                alt="Deadpool 2"
-                            />
-                            <p class="movie-item__title">Deadpool 2</p>
-                        </div>
-                        <div class="movie-item">
-                            <img
-                                src="./assets/img/Movie2.png"
-                                alt="Deadpool 2"
-                            />
-                            <p class="movie-item__title">
-                                Avengers: Infinity War
-                            </p>
-                        </div>
-                    </div>
+                    <h2>Similar</h2>
+                    <div
+                        class="similar-container container-movies"
+                        id="similarMovies"
+                    ></div>
                 </section>
             </section>
         </main>
@@ -150,7 +116,7 @@
             <a href="#home" id="homeFooter"
                 ><i class="fa-solid fa-house"></i
             ></a>
-            <a href="#search=" id="searcherFooter"
+            <a href="#search=search" id="searcherFooter"
                 ><i class="fa-solid fa-magnifying-glass"></i
             ></a>
             <a href="#" id="profileFooter"><i class="fa-solid fa-user"></i></a>

@@ -27,6 +27,14 @@ const createContainer = (itemsList, carouselContainer) => {
         movieTitle.className = "movie-item__title";
         movieTitle.innerText = name;
 
+        movieItem.addEventListener("click", () => {
+            if (movie.title) {
+                location.hash = `#movie=${movie.id}`;
+            } else {
+                location.hash = `#tv=${movie.id}`;
+            }
+        });
+
         movieItem.appendChild(movieImage);
         movieItem.appendChild(movieTitle);
         carouselContainer.appendChild(movieItem);
@@ -94,5 +102,37 @@ const getMoviesBySearch = async (query) => {
     });
     const results = data.results;
 
-    createContainer(results, genericSection);
+    if (query !== "search") {
+        createContainer(results, genericSection);
+    } else {
+        genericSection.innerHTML = "";
+    }
+};
+
+const getMovieDetails = async (id, mediaType) => {
+    let { data } = await API(`${mediaType}/${id}`);
+
+    let name;
+    if (data.title) {
+        name = data.title;
+    } else {
+        name = data.name;
+    }
+
+    movieDetailsHeader.style.background = `linear-gradient(180deg, rgba(0, 0, 0, 0.25) 19.27%, rgba(0, 0, 0, 0) 29.17%),
+    top / 100% no-repeat url(https://image.tmdb.org/t/p/w1280/${data.poster_path})`;
+    movieDetailsTitle.innerText = name;
+    movieDetailsDescription.innerText = data.overview;
+    movieDetailsCategories.innerHTML = "";
+    data.genres.forEach((genre) => {
+        movieDetailsCategories.innerHTML += `<p>${genre.name}</p>`;
+    });
+};
+
+const getSimilarMovies = async (id, mediaType) => {
+    const { data } = await API(`${mediaType}/${id}/similar`);
+    const results = data.results;
+    console.log(results);
+
+    createContainer(results, similarMovies);
 };
