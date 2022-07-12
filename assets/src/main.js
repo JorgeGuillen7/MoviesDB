@@ -41,26 +41,22 @@ const createContainer = (itemsList, carouselContainer) => {
     });
 };
 
-const getTrendingPreview = async () => {
-    const { data } = await API(`trending/all/week`);
+const getTrendingData = async (mediaType, container) => {
+    const { data } = await API(`trending/${mediaType}/week`);
     const results = data.results;
 
-    createContainer(results, trendingPreview);
+    createContainer(results, container);
 };
 
-const getTrendingMoviesPreview = async () => {
-    const { data } = await API(`trending/movie/week`);
-    const results = data.results;
+const getTrendingPreview = () => getTrendingData("all", trendingPreview);
+const getTrendingMoviesPreview = () =>
+    getTrendingData("movie", trendingMoviesPreview);
+const getTrendingTVShowsPreview = () =>
+    getTrendingData("tv", trendingTVShowsPreview);
 
-    createContainer(results, trendingMoviesPreview);
-};
-
-const getTrendingTVShowsPreview = async () => {
-    const { data } = await API(`trending/tv/week`);
-    const results = data.results;
-
-    createContainer(results, trendingTVShowsPreview);
-};
+// const getTrending = () => getTrendingData("all", genericSection);
+// const getTrendingMovies = () => getTrendingData("movie", genericSection);
+// const getTrendingTVShows = () => getTrendingData("tv", genericSection);
 
 const getCategories = async () => {
     moviesCategories.innerHTML = "";

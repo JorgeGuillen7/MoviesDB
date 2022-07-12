@@ -57,6 +57,11 @@ h2 {
     font-weight: bold;
 }
 
+h2 a {
+    color: var(--green-dark);
+    text-decoration: none;
+}
+
 ::-webkit-scrollbar-thumb {
     background-color: #bdb9a8;
     border-radius: 10px;
@@ -91,9 +96,9 @@ h2 {
     margin: 50px auto;
 }
 
-.category-header h1 {
-    margin: 30px auto;
-    font-size: 3rem;
+.category-title {
+    margin: 30px 40px;
+    font-size: 2.5rem;
 }
 
 .movie-details-header {
@@ -266,8 +271,8 @@ h2 {
     height: 100%;
     padding: 0 10px;
     text-decoration: none;
-    font-size: 1.2rem;
     color: var(--black);
+    font-size: 1.2rem;
     font-weight: bold;
 }
 

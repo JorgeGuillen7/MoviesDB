@@ -100,4 +100,21 @@ const trendsPage = () => {
     hideSections();
     categoryHeader.classList.remove("hidden");
     genericSection.classList.remove("hidden");
+
+    const mediaType = location.hash.split("=")[1];
+    getTrendingData(mediaType, genericSection);
+
+    switch (mediaType) {
+        case "all":
+            categoryTitle.innerText = "Trending";
+            break;
+        case "movie":
+            categoryTitle.innerText = "Trending Movies";
+            break;
+        case "tv":
+            categoryTitle.innerText = "Trending TV Shows";
+            break;
+        default:
+            break;
+    }
 };
