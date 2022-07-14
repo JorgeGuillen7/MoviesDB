@@ -106,5 +106,3 @@ dist
 # VSCode config
 .vscode/
 
-# Secret.js 
-assets/src/secret.js
