@@ -1,136 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./assets/styles/style.css" />
-        <script
-            src="https://kit.fontawesome.com/9adde3116b.js"
-            crossorigin="anonymous"
-        ></script>
-        <title>MoviesDB</title>
-    </head>
-    <body>
-        <header>
-            <nav class="principal-header" id="principalHeader">
-                <img
-                    class="logo"
-                    src="./assets/img/MoviesDB-logo.png"
-                    alt="Platzi Movies"
-                />
-            </nav>
-            <div class="movie-details-header" id="movieDetailsHeader"></div>
-            <div class="search-header" id="searchHeader">
-                <div class="searcher__bar">
-                    <input
-                        type="search"
-                        name="searcherInput"
-                        id="searcherInput"
-                        placeholder="Search..."
-                    />
-                    <span id="searcherButton">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="category-header" id="categoryHeader">
-                <span class="back-icon" id="backButton">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                </span>
-                <h1 class="category-title" id="categoryTitle"></h1>
-            </div>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/9adde3116b.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>MoviesDB</title>
+  </head>
+  <body>
+    <header>
+      <nav class="principal-header" id="principalHeader">
+        <img
+          class="logo"
+          src="./assets/img/MoviesDB-logo.png"
+          alt="Platzi Movies"
+        />
+      </nav>
+      <div class="movie-details-header" id="movieDetailsHeader"></div>
+      <div class="search-header" id="searchHeader">
+        <div class="searcher__bar">
+          <input
+            type="search"
+            name="searcherInput"
+            id="searcherInput"
+            placeholder="Search..."
+          />
+          <span id="searcherButton">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+        </div>
+      </div>
+      <div class="category-header" id="categoryHeader">
+        <span class="back-icon" id="backButton">
+          <i class="fa-solid fa-circle-chevron-left"></i>
+        </span>
+        <h1 class="category-title" id="categoryTitle"></h1>
+      </div>
+    </header>
 
-        <main>
-            <section class="main-section" id="mainSection">
-                <section class="searcher">
-                    <div class="searcher__bar">
-                        <input
-                            type="search"
-                            name=""
-                            id="searcherHomeInput"
-                            placeholder="Search..."
-                        />
-                        <span id="searcherHomeButton">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </span>
-                    </div>
-                </section>
-                <section class="trending">
-                    <h2>
-                        <a href="#trends=all">Trending</a>
-                    </h2>
-                    <div class="container-movies" id="trendingPreview"></div>
-                </section>
+    <main>
+      <section class="main-section" id="mainSection">
+        <section class="searcher">
+          <div class="searcher__bar">
+            <input
+              type="search"
+              name=""
+              id="searcherHomeInput"
+              placeholder="Search..."
+            />
+            <span id="searcherHomeButton">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+          </div>
+        </section>
+        <section class="trending">
+          <h2>
+            <a href="#trends=all">Trending</a>
+          </h2>
+          <div class="container-movies" id="trendingPreview">
+            <div class="movie-item-skeleton"></div>
+            <div class="movie-item-skeleton"></div>
+            <div class="movie-item-skeleton"></div>
+          </div>
+        </section>
 
-                <section class="trending-movies">
-                    <h2>
-                        <a href="#trends=movie">Trending Movies</a>
-                    </h2>
-                    <div
-                        class="container-movies"
-                        id="trendingMoviesPreview"
-                    ></div>
-                </section>
+        <section class="trending-movies">
+          <h2>
+            <a href="#trends=movie">Trending Movies</a>
+          </h2>
+          <div class="container-movies" id="trendingMoviesPreview">
+            <div class="movie-item-skeleton"></div>
+            <div class="movie-item-skeleton"></div>
+            <div class="movie-item-skeleton"></div>
+          </div>
+        </section>
 
-                <section class="trending-tv">
-                    <h2>
-                        <a href="#trends=tv">Trending TV Shows</a>
-                    </h2>
-                    <div
-                        class="container-movies"
-                        id="trendingTVShowsPreview"
-                    ></div>
-                </section>
+        <section class="trending-tv">
+          <h2>
+            <a href="#trends=tv">Trending TV Shows</a>
+          </h2>
+          <div class="container-movies" id="trendingTVShowsPreview">
+            <div class="movie-item-skeleton"></div>
+            <div class="movie-item-skeleton"></div>
+            <div class="movie-item-skeleton"></div>
+          </div>
+        </section>
 
-                <section class="categories">
-                    <h2>Movies Categories</h2>
-                    <ul class="popular-categories" id="moviesCategories"></ul>
-                </section>
-            </section>
+        <section class="categories">
+          <h2>Movies Categories</h2>
+          <ul class="popular-categories" id="moviesCategories"></ul>
+        </section>
+      </section>
 
-            <section
-                class="generic-section__container"
-                id="genericSection"
-            ></section>
+      <section class="generic-section__container" id="genericSection"></section>
 
-            <section class="movie-details-section" id="movieDetailsSection">
-                <span class="close-icon" id="closeButton">
-                    <i class="fa-solid fa-circle-xmark"></i>
-                </span>
-                <h1 class="movie-details__title" id="movieDetailsTitle"></h1>
-                <div
-                    class="movie-details__categories"
-                    id="movieDetailsCategories"
-                ></div>
-                <p
-                    class="movie-details__description"
-                    id="movieDetailsDescription"
-                ></p>
-                <section class="similar">
-                    <h2>Similar</h2>
-                    <div
-                        class="similar-container container-movies"
-                        id="similarMovies"
-                    ></div>
-                </section>
-            </section>
-        </main>
+      <section class="movie-details-section" id="movieDetailsSection">
+        <span class="close-icon" id="closeButton">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </span>
+        <h1 class="movie-details__title" id="movieDetailsTitle"></h1>
+        <div
+          class="movie-details__categories"
+          id="movieDetailsCategories"
+        ></div>
+        <p class="movie-details__description" id="movieDetailsDescription"></p>
+        <section class="similar">
+          <h2>Similar</h2>
+          <div
+            class="similar-container container-movies"
+            id="similarMovies"
+          ></div>
+        </section>
+      </section>
+    </main>
 
-        <footer class="footer">
-            <a href="#home" id="homeFooter"
-                ><i class="fa-solid fa-house"></i
-            ></a>
-            <a href="#search=search" id="searcherFooter"
-                ><i class="fa-solid fa-magnifying-glass"></i
-            ></a>
-            <a href="#" id="profileFooter"><i class="fa-solid fa-user"></i></a>
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <script src="./assets/src/secret.js"></script>
-            <script src="./assets/src/nodes.js "></script>
-            <script src="./assets/src/main.js"></script>
-            <script src="./assets/src/navigation.js"></script>
-        </footer>
-    </body>
+    <footer class="footer">
+      <a href="#home" id="homeFooter"><i class="fa-solid fa-house"></i></a>
+      <a href="#search=search" id="searcherFooter"
+        ><i class="fa-solid fa-magnifying-glass"></i
+      ></a>
+      <a href="#" id="profileFooter"><i class="fa-solid fa-user"></i></a>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="./assets/src/secret.js"></script>
+      <script src="./assets/src/nodes.js "></script>
+      <script src="./assets/src/main.js"></script>
+      <script src="./assets/src/navigation.js"></script>
+    </footer>
+  </body>
 </html>
