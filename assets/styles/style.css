@@ -204,8 +204,8 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .container-movies:hover .movie-item {
-  opacity: 0.7;
-  filter: grayscale(1);
+  opacity: 0.8;
+  filter: grayscale(0.3);
 }
 
 .container-movies .movie-item:hover {
@@ -406,6 +406,14 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .movie-item-skeleton:nth-child(2) {
   animation-delay: 0.2s;
+}
+
+.category-item-skeleton {
+  width: 110px;
+  height: 45px;
+  border-radius: 3px;
+  background-color: var(--green-light);
+  animation: loading-effect 1.5s infinite;
 }
 
 .fade {

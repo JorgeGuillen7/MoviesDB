@@ -8,6 +8,22 @@ const API = axios.create({
   },
 });
 
+const lazyLoader = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList = "fade";
+        const urlImg = entry.target.getAttribute("data-img");
+        entry.target.setAttribute("src", urlImg);
+        const name = entry.target.getAttribute("data-name");
+        entry.target.setAttribute("alt", name);
+        lazyLoader.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
 const createContainer = (itemsList, carouselContainer) => {
   carouselContainer.innerHTML = "";
   itemsList.forEach((movie) => {
@@ -21,9 +37,11 @@ const createContainer = (itemsList, carouselContainer) => {
     const movieItem = document.createElement("div");
     movieItem.classList = "movie-item fade";
     const movieImage = document.createElement("img");
-    movieImage.src = `https://image.tmdb.org/t/p/w300/${movie.poster_path}`;
-    movieImage.classList = "fade";
-    movieImage.alt = name;
+    movieImage.setAttribute(
+      "data-img",
+      `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+    );
+    movieImage.setAttribute("data-name", name);
     const movieTitle = document.createElement("p");
     movieTitle.classList = "movie-item__title fade-text";
     movieTitle.innerText = name;
@@ -35,6 +53,8 @@ const createContainer = (itemsList, carouselContainer) => {
         location.hash = `#tv=${movie.id}`;
       }
     });
+
+    lazyLoader.observe(movieImage);
 
     movieItem.appendChild(movieImage);
     movieItem.appendChild(movieTitle);
@@ -50,8 +70,10 @@ const getTrendingData = async (mediaType, container) => {
 };
 
 const getTrendingPreview = () => getTrendingData("all", trendingPreview);
+
 const getTrendingMoviesPreview = () =>
   getTrendingData("movie", trendingMoviesPreview);
+
 const getTrendingTVShowsPreview = () =>
   getTrendingData("tv", trendingTVShowsPreview);
 
@@ -66,6 +88,7 @@ const getCategories = async () => {
 
   for (let i = 0; i < 10; i++) {
     const li = document.createElement("li");
+    li.classList = "fade";
     const link = document.createElement("a");
     link.href = `#category=${results[i].id}-${results[i].name}`;
     const icon = document.createElement("i");
