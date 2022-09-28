@@ -15,6 +15,7 @@ const lazyLoader = new IntersectionObserver(
         entry.target.classList = "fade";
         const urlImg = entry.target.getAttribute("data-img");
         entry.target.setAttribute("src", urlImg);
+        console.log(urlImg);
         const name = entry.target.getAttribute("data-name");
         entry.target.setAttribute("alt", name);
         lazyLoader.unobserve(entry.target);
@@ -39,7 +40,9 @@ const createContainer = (itemsList, carouselContainer) => {
     const movieImage = document.createElement("img");
     movieImage.setAttribute(
       "data-img",
-      `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+      movie.poster_path
+        ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+        : "https://i.postimg.cc/W3g7CzPZ/Movies-DB-not-Found.png"
     );
     movieImage.setAttribute("data-name", name);
     const movieTitle = document.createElement("p");
@@ -139,8 +142,11 @@ const getMovieDetails = async (id, mediaType) => {
     name = data.name;
   }
 
-  movieDetailsHeader.style.background = `linear-gradient(180deg, rgba(0, 0, 0, 0.25) 19.27%, rgba(0, 0, 0, 0) 29.17%),
-    top / 100% no-repeat url(https://image.tmdb.org/t/p/w1280/${data.poster_path})`;
+  data.poster_path
+    ? (movieDetailsHeader.style.background = `linear-gradient(180deg, rgba(0, 0, 0, 0.25) 19.27%, rgba(0, 0, 0, 0) 29.17%),
+    top / 100% no-repeat url(https://image.tmdb.org/t/p/w1280/${data.poster_path})`)
+    : (movieDetailsHeader.style.background = `linear-gradient(180deg, rgba(0, 0, 0, 0.25) 19.27%, rgba(0, 0, 0, 0) 29.17%),
+    top / 100% no-repeat url(https://i.postimg.cc/0rRGfq4f/Movies-DB-not-Found-full.png)`);
   movieDetailsTitle.innerText = name;
   movieDetailsDescription.innerText = data.overview;
   movieDetailsCategories.innerHTML = "";
